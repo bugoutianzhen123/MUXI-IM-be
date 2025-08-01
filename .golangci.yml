@@ -1,0 +1,20 @@
+version: "2"
+#可以决定使用哪些linter
+linters:
+  enable:
+    - errcheck
+    - govet
+    - staticcheck
+    - gocritic
+  #禁用默认开启的linter
+  disable: []
+
+run:
+  timeout: 3m
+
+issues:
+  max-same-issues: 0
+  #选择忽略某些文件
+#  exclude:
+#    - path: _test\.go
+#      text: "Error return value is not checked"
