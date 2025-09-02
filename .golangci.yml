@@ -16,5 +16,5 @@ issues:
   max-same-issues: 0
   #选择忽略某些文件
 #  exclude:
-#    - path: _test\.go
+#    - path: _test\.gogolangci-lint --version
 #      text: "Error return value is not checked"

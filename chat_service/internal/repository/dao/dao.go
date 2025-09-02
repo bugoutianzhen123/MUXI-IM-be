@@ -1,7 +1,11 @@
 package dao
 
+import "gorm.io/gorm"
+
 type ChatDao interface {
 	CreateChatHistory() error
+	GetChatHistory() error
+	FindChatHistory() error
 }
 
 type GroupChatDao interface {
@@ -21,4 +25,8 @@ func NewDao() ChatDao {
 
 func NewGroupChatDao() GroupChatDao {
 	return &groupChatDao{}
+}
+
+func InitTables(db *gorm.DB) error {
+	return nil
 }
