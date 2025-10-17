@@ -1,13 +1,15 @@
 package dao
 
-func (cd *chatDao) CreateChatHistory() error {
-	return nil
+import "github.com/muxi-Infra/MUXI-IM-be/chat_service/internal/model"
+
+func (cd *chatDao) CreateChatHistory(chistory model.PrivateChatHistory) error {
+	return cd.DB.Create(chistory).Error
 }
 
-func (cd *chatDao) GetChatHistory() error {
-	return nil
+func (cd *chatDao) GetChatHistories() ([]model.PrivateChatHistory, error) {
+	return nil, nil
 }
 
-func (cd *chatDao) FindChatHistory() error {
-	return nil
+func (cd *chatDao) FindChatHistory() ([]model.PrivateChatHistory, error) {
+	return nil, nil
 }

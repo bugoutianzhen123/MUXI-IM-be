@@ -1,5 +1,108 @@
 syntax = "proto3";
 
 service ChatService {
+// 发送私聊消息
+rpc SendPrivateMessage(SendPrivateMessageRequest) returns (SendPrivateMessageResponse);
+// 获取私聊历史
+rpc GetPrivateChatHistory(GetPrivateChatHistoryRequest) returns (GetPrivateChatHistoryResponse);
+// 搜索私聊消息
+rpc SearchPrivateMessages(SearchPrivateMessagesRequest) returns (SearchPrivateMessagesResponse);
+// 撤回消息
+rpc RevokePrivateMessage(RevokePrivateMessageRequest) returns (RevokePrivateMessageResponse);
 
+// 创建群组
+rpc CreateGroup(CreateGroupRequest) returns (CreateGroupResponse);
+// 获取用户群组列表
+rpc GetUserGroups(GetUserGroupsRequest) returns (GetUserGroupsResponse);
+// 加入群组
+rpc JoinGroup(JoinGroupRequest) returns (JoinGroupResponse);
+// 离开群组
+rpc LeaveGroup(LeaveGroupRequest) returns (LeaveGroupResponse);
+// 解散群组
+rpc DismissGroup(DismissGroupRequest) returns (DismissGroupResponse);
+
+ // 发送群聊消息
+ rpc SendGroupMessage(SendGroupMessageRequest) returns (SendGroupMessageResponse);
+ // 获取群聊历史
+ rpc GetGroupChatHistory(GetGroupChatHistoryRequest) returns (GetGroupChatHistoryResponse);
+ // 搜索群聊消息
+ rpc SearchGroupMessages(SearchGroupMessagesRequest) returns (SearchGroupMessagesResponse);
+ // 撤回消息
+ rpc RevokeGroupMessage(RevokeGroupMessageRequest) returns (RevokeGroupMessageResponse);
+
+// 获取群成员列表
+rpc GetGroupMembers(GetGroupMembersRequest) returns (GetGroupMembersResponse);
+// 添加群成员
+rpc AddGroupMember(AddGroupMemberRequest) returns (AddGroupMemberResponse);
+// 移除群成员
+rpc RemoveGroupMember(RemoveGroupMemberRequest) returns (RemoveGroupMemberResponse);
+// 更新成员角色
+rpc UpdateMemberRole(UpdateMemberRoleRequest) returns (UpdateMemberRoleResponse);
+
+//// 更新用户在线状态
+//rpc UpdateUserStatus(UpdateUserStatusRequest) returns (UpdateUserStatusResponse);
+//// 获取用户状态
+//rpc GetUserStatus(GetUserStatusRequest) returns (GetUserStatusResponse);
+//// 获取多个用户状态
+//rpc GetUsersStatus(GetUsersStatusRequest) returns (GetUsersStatusResponse);
 }
+
+message SendPrivateMessageRequest {}
+message SendPrivateMessageResponse {}
+
+message GetPrivateChatHistoryRequest {}
+message GetPrivateChatHistoryResponse{}
+
+message SearchPrivateMessagesRequest{}
+message SearchPrivateMessagesResponse{}
+
+message RevokePrivateMessageRequest{}
+message RevokePrivateMessageResponse{}
+
+message CreateGroupRequest{} 
+message CreateGroupResponse{}
+
+message GetUserGroupsRequest{} 
+message GetUserGroupsResponse{}
+
+message JoinGroupRequest{} 
+message JoinGroupResponse{}
+
+message LeaveGroupRequest{} 
+message LeaveGroupResponse{}
+
+message SendGroupMessageRequest {}
+message SendGroupMessageResponse {}
+
+message GetGroupChatHistoryRequest {}
+message GetGroupChatHistoryResponse{}
+
+message SearchGroupMessagesRequest{}
+message SearchGroupMessagesResponse{}
+
+message RevokeGroupMessageRequest{}
+message RevokeGroupMessageResponse{}
+
+message DismissGroupRequest{} 
+message DismissGroupResponse{}
+
+message GetGroupMembersRequest{} 
+message GetGroupMembersResponse{}
+
+message AddGroupMemberRequest{} 
+message AddGroupMemberResponse{}
+
+message RemoveGroupMemberRequest{} 
+message RemoveGroupMemberResponse{}
+
+message UpdateMemberRoleRequest{} 
+message UpdateMemberRoleResponse{}
+
+//message UpdateUserStatusRequest{}
+//message UpdateUserStatusResponse{}
+//
+//message GetUserStatusRequest{}
+//message GetUserStatusResponse{}
+//
+//message GetUsersStatusRequest{}
+//message GetUsersStatusResponse{}

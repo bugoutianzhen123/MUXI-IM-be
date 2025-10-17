@@ -1,6 +1,6 @@
 package model
 
-type GroupChat struct{}
+type GroupChatMessage struct{}
 
 type GroupChatHistory struct {
 }
