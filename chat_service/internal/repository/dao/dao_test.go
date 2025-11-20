@@ -1,10 +1,11 @@
 package dao
 
 import (
+	"testing"
+
 	"github.com/muxi-Infra/MUXI-IM-be/chat_service/internal/model"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
-	"testing"
 )
 
 func TestCreateChatHistory(t *testing.T) {
@@ -17,7 +18,7 @@ func TestCreateChatHistory(t *testing.T) {
 		t.Fatal(err)
 	}
 	gcd := NewGroupChatDao()
-	if err := gcd.CreateChatHistory(model.GroupChatHistory{}); err != nil {
+	if err := gcd.CreateGroupChatHistory(model.GroupChatHistory{}); err != nil {
 		t.Fatal(err)
 	}
 }

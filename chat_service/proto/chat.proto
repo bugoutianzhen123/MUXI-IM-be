@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package chat;
+option go_package = "github.com/muxi-Infra/MUXI-IM-be/api/proto/chat;chatpb";
+
+// ... existing code ...
+service ChatService {
+  // 发送私聊消息
+  rpc SendPrivateMessage(SendPrivateMessageRequest) returns (SendPrivateMessageResponse);
+  // 获取私聊历史
+  rpc GetPrivateChatHistory(GetPrivateChatHistoryRequest) returns (GetPrivateChatHistoryResponse);
+  // 搜索私聊消息
+  rpc SearchPrivateMessages(SearchPrivateMessagesRequest) returns (SearchPrivateMessagesResponse);
+  // 撤回消息
+  //rpc RevokePrivateMessage(RevokePrivateMessageRequest) returns (RevokePrivateMessageResponse);
+
+  // ... existing code ...
+}
+
+// 私聊消息内容，贴合 internal/model.MessageContent
+message MessageContent {
+  int32 kind = 1;      // At, PlainText, Image
+  string content = 2;  // 文本或资源地址
+}
+
+// 私聊消息/历史，贴合 internal/model.PrivateChatHistory / PrivateChatMessage
+message PrivateChatMessage {
+  int64 id = 1;
+  int64 sender_uid = 2;
+  int64 receiver_uid = 3;
+  int64 quote_reply = 4;
+  repeated MessageContent contents = 5;
+  int64 timestamp = 6;
+  int32 status = 7;
+  map<string, string> extensions = 8;
+}
+
+// 发送
+message SendPrivateMessageRequest {
+  PrivateChatMessage message = 1;
+}
+message SendPrivateMessageResponse {
+  bool ok = 1;
+  int64 id = 2;
+}
+
+// 拉取历史
+message GetPrivateChatHistoryRequest {
+  int64 sender_uid = 1;
+  int64 receiver_uid = 2;
+}
+message GetPrivateChatHistoryResponse{
+  repeated PrivateChatMessage messages = 1;
+}
+
+// 搜索
+message SearchPrivateMessagesRequest{
+  int64 sender_uid = 1;
+  int64 receiver_uid = 2;
+  string keyword = 3;
+}
+message SearchPrivateMessagesResponse{
+  repeated PrivateChatMessage messages = 1;
+}
+
+// 撤回（占位）
+message RevokePrivateMessageRequest{
+  int64 id = 1;
+}
+message RevokePrivateMessageResponse{
+}
+
+// ... existing code ...

@@ -14,7 +14,7 @@ func InitDB(l logger.Logger) *gorm.DB {
 		DSN string `yaml:"dsn"`
 	}
 	var cfg Config
-	if err := viper.UnmarshalKey("postgres", &cfg); err != nil {
+	if err := viper.UnmarshalKey("database", &cfg); err != nil {
 		panic(err)
 	}
 	db, err := gorm.Open(postgres.Open(cfg.DSN), &gorm.Config{
